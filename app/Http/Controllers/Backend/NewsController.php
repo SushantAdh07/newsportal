@@ -8,12 +8,18 @@ use App\Models\News;
 use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Repositories\NewsRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    protected $newsRepository;
+
+    public function __construct(NewsRepositoryInterface $newsRepository){
+        $this->newsRepository = $newsRepository;
+    }
     public function allNews(){
-        $news = News::latest()->get();
+        $news = $this->newsRepository->getAllNews();
         return view('backend.news.allnews', compact('news'));
     }
 
