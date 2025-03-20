@@ -24,7 +24,7 @@ class NewsController extends Controller
     }
 
     public function  addNews(){
-        $category = Category::latest()->get();
+        $category = $this->newsRepository->getAllCat();
         $adminuser = User::where('role', 'admin')->get();
         return view('backend.news.addnews', compact('category', 'adminuser'));
     }
@@ -67,8 +67,8 @@ class NewsController extends Controller
     }
 
     public function editNews($id){
-        $news = News::findOrFail($id);
-        $categories = Category::latest()->get();
+        $news = $this->newsRepository->NewsById($id);
+        $categories = $this->newsRepository->getAllCat();
         $adminuser = User::where('role', 'admin')->latest()->get();
         return view('backend.news.editnews', compact('news', 'categories', 'adminuser'));
     }
