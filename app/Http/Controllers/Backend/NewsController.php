@@ -35,10 +35,6 @@ class NewsController extends Controller
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $imagePath = 'uploads/news/' . $name_gen;
         Storage::disk('public')->put($imagePath, file_get_contents($image));
-        
-
-        // Look up the category by category_name
-        
 
         News::insert([
             
@@ -48,13 +44,11 @@ class NewsController extends Controller
             'news_title' => $request->news_title,
             'news_title_slug' => strtolower(str_replace(' ', '-', $request->news_title)),
             'news_details' => $request->news_details,
-            
             'tags' => $request->tags,
             'breaking_news' => $request->breaking_news,
             'top_slider' => $request->top_slider,
             'first_three' => $request->first_three,
             'first_nine' => $request->first_nine,
-
             'post_date' => date('Y-m-d H:i:s'),
             'post_month' => date('F'),
             'image' => $imagePath,
@@ -75,15 +69,12 @@ class NewsController extends Controller
 
     public function updateNews(Request $request){
         $news_id = $request->id;
-
         if($request->file('image')){
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $imagePath = 'uploads/news/' . $name_gen;
         Storage::disk('public')->put($imagePath, file_get_contents($image));
-       // $category = Category::where('category_name', $categoryName)->first();
 
-            
             News::findOrFail($news_id)->update([
                 'category_id' => $request->category_id,
                 'category_name' => $request->category_name,
@@ -112,12 +103,10 @@ class NewsController extends Controller
     } else{
             News::findOrFail($news_id)->update([
                 'category_id' => $request->category_id,
-                 //'category_name' => $request->category_name,
                 'user_id' => $request->user_id,
                 'news_title' => $request->news_title,
                 'news_title_slug' => strtolower(str_replace(' ', '-', $request->news_title)),
                 'news_details' => $request->news_details,
-                
                 'tags' => $request->tags,
                 'breaking_news' => $request->breaking_news,
                 'top_slider' => $request->top_slider,
