@@ -7,10 +7,6 @@
 @section('news')
     <div class="main_website">
 
-
-
-
-
         <div class="main-section" style="overflow: hidden;">
 
             <div class="container">
@@ -166,23 +162,23 @@
 
 
                                         <!--<div data-mfp-src="#mymodal" class="live-icon modal-live"> <i
-                                                                    class="las la-play"></i> </div> -->
+                                                                        class="las la-play"></i> </div> -->
 
                                     </div>
 
                                     <!--<div class="live-popup">
-                                                                <div id="mymodal" class="mfp-hide" role="dialog" aria-labelledby="modal-titles"
-                                                                    aria-describedby="modal-contents">
-                                                                    <div id="modal-contents">
-                                                                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
-                                                                            <iframe class="embed-responsive-item"
-                                                                                src="https://www.youtube.com/watch?v=JBKfwKkAX9U&list=PLBop-guvw1Nk3Up-RgxJ9j-Ayjnk45ayz&index=95&pp=iAQB"
-                                                                                allowfullscreen="allowfullscreen" width="100%"
-                                                                                height="400px"></iframe>
+                                                                    <div id="mymodal" class="mfp-hide" role="dialog" aria-labelledby="modal-titles"
+                                                                        aria-describedby="modal-contents">
+                                                                        <div id="modal-contents">
+                                                                            <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
+                                                                                <iframe class="embed-responsive-item"
+                                                                                    src="https://www.youtube.com/watch?v=JBKfwKkAX9U&list=PLBop-guvw1Nk3Up-RgxJ9j-Ayjnk45ayz&index=95&pp=iAQB"
+                                                                                    allowfullscreen="allowfullscreen" width="100%"
+                                                                                    height="400px"></iframe>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div> -->
+                                                                </div> -->
                                 </div>
                             </div>
                             <div class="themesBazar_widget">

@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('post_date')->nullable();
             $table->string('post_month');
             $table->integer('status')->default(1);
-
             $table->timestamps();
         });
     }
