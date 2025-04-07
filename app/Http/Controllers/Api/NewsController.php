@@ -11,13 +11,9 @@ class NewsController extends Controller
 {
     public function index(Request $request){
 
-        $news = News::query();
-    
-    if ($request->has('name')) {
-        $news->where('name', 'like', '%'.$request->name.'%');
-    }
-    
-    return response()->json($news->get());
+        return response()->json(
+            News::where('news_title', 'like', '%nepal%')->get()
+        );
     }
 
     public function store(){
