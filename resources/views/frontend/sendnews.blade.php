@@ -7,6 +7,13 @@
                     <div class="contact-wrpp">
                         <h4 class="contactAddess-title text-center">
                             Send Us Your News </h4>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $item)
+                                        <li>{{$item}}</li>
+                                    @endforeach
+                                </div>
+                            @endif
                         <div role="form" class="wpcf7" id="wpcf7-f437-o1" lang="en-US" dir="ltr">
                             <div class="screen-reader-response">
                                 <p role="status" aria-live="polite" aria-atomic="true"></p>
@@ -30,7 +37,7 @@
                                                         name="send_news_title" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                         aria-required="true" aria-invalid="false"
-                                                        placeholder="News Title Here"></span>
+                                                        placeholder="News Title Here" required=""></span>
                                             </div>
                                         </div>
                                     </div>
@@ -43,7 +50,7 @@
                                                 <span class="wpcf7-form-control-wrap news_details">
                                                     <textarea name="send_news_details" cols="40" rows="10"
                                                         class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"
-                                                        placeholder="News Details...."></textarea>
+                                                        placeholder="News Details...." required></textarea>
                                                 </span>
                                             </div>
                                         </div>
@@ -57,7 +64,7 @@
                                                 <span class="wpcf7-form-control-wrap your-name"><input type="text"
                                                         name="sendername" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                        aria-required="true" aria-invalid="false"
+                                                        aria-required="true" aria-invalid="false" required
                                                         placeholder="Your Name"></span>
                                             </div>
                                         </div>
@@ -69,7 +76,7 @@
                                                 <span class="wpcf7-form-control-wrap your-email"><input type="email"
                                                         name="senderemail" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
-                                                        aria-invalid="false" placeholder="Your Email"></span>
+                                                        aria-invalid="false" placeholder="Your Email" required></span>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +89,7 @@
                                             <span class="wpcf7-form-control-wrap news_image"><input type="file"
                                                     name="senderimage" size="40" class="wpcf7-form-control wpcf7-file"
                                                     accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv"
-                                                    aria-invalid="false"></span>
+                                                    aria-invalid="false" required></span>
                                         </div>
                                     </div>
 

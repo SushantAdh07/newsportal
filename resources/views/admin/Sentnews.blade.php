@@ -28,7 +28,9 @@
                         <td><img style="width: 100px;" src="{{ asset($item->senderimage) }}" alt=""></td>
                         <td>{{ $item->sendername }}</td>
                         <td>{{ $item->senderemail }}</td>
-                        <td><a class="btn btn-danger" href="{{ route('delete.sent-news', $item->id) }}">Delete</a></td>
+                        <td><a class="btn btn-danger mt-2" href="{{ route('delete.sent-news', $item->id) }}">Delete</a>
+                        <a class="btn btn-warning mt-2" href="">Edit</a>
+                        </td>
 
                     </tr>
                 @endforeach

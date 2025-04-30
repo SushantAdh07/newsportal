@@ -16,6 +16,14 @@ class SendNewsController extends Controller
 
     public function storeSendNews(Request $request){
 
+        $request->validate([
+            'send_news_title'=> ['required'],
+            'send_news_details'=> ['required'],
+            'sendername'=> ['required'],
+            'senderemail'=> ['required'],
+            'senderimage'=> ['nullable'],
+        ]);
+
         $senderimage = $request->file('senderimage');
         $name_gen = hexdec(uniqid()) . '.' . $senderimage->getClientOriginalExtension();
         $senderimagePath = 'uploads/news/' . $name_gen;

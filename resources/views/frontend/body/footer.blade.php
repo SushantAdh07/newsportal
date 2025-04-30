@@ -11,7 +11,7 @@
                             href="{{ route('contact') }} ">CONTACT</a></li>
                     <li id="menu-item-558"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-558"><a
-                            href="/send-news">SEND NEWS </a></li>
+                            href="{{route('send.news')}}">SEND NEWS </a></li>
                     <li id="menu-item-553"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-553"><a
                             href=" ">PHOTO GALLERY</a></li>

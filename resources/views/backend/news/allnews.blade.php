@@ -136,13 +136,14 @@
                                                                         <a href="{{ route('delete.news', $item->id) }}"
                                                                             class="btn btn-danger">Delete</a>
                                                                     </div>
-
+                                                                    
+                                                                        
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <a href="{{ route('edit.news', $item->id) }}"
                                                             class="btn btn-warning mt-1 width-xs">Edit</a>
+                                                        
                                                     </td>
 
 

@@ -57,7 +57,7 @@ Route::post('/store-contact', 'storeContact')->name('store.contact');
 
 
 Route::controller(SendNewsController::class)->group(function(){
-    Route::get('/send-news', 'sendNews');
+    Route::get('/send-news', 'sendNews')->name('send.news');
     Route::post('/store-sendnews', 'storeSendNews')->name('store.sendnews');
 });
 
