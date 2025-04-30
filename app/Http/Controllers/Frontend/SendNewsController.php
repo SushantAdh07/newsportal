@@ -3,13 +3,24 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Sendnews;
+use App\Models\User;
+use App\Repositories\NewsRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 
 
 class SendNewsController extends Controller
 {
+
+    protected $newsRepository;
+
+    public function __construct(NewsRepositoryInterface $newsRepository)
+    {
+        $this->newsRepository = $newsRepository;
+    }
+
     public function sendNews(){
         return view('frontend.sendnews');
     }
@@ -42,7 +53,14 @@ class SendNewsController extends Controller
 
     public function showSentNews(){
         $sentnews = Sendnews::latest()->get();
-        return view('admin.sentnews', compact('sentnews'));
+        return view('admin.sentnews.sentnews', compact('sentnews'));
+    }
+
+    public function editSentNews($id){
+        $adminuser = User::where('role', 'admin')->latest()->get();
+        $category = $this->newsRepository->getAllCat();
+        $sentnews = Sendnews::findOrFail($id);
+        return view('admin.sentnews.editsentnews', compact('adminuser', 'category', 'sentnews'));
     }
 
     public function deleteSentNews($id){

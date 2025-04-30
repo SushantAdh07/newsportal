@@ -29,7 +29,7 @@
                         <td>{{ $item->sendername }}</td>
                         <td>{{ $item->senderemail }}</td>
                         <td><a class="btn btn-danger mt-2" href="{{ route('delete.sent-news', $item->id) }}">Delete</a>
-                        <a class="btn btn-warning mt-2" href="">Edit</a>
+                        <a class="btn btn-warning mt-2" href="{{route('edit.sent-news', $item->id) }}">Edit</a>
                         </td>
 
                     </tr>

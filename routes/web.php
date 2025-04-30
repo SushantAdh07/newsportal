@@ -44,6 +44,7 @@ Route::post('/storeytlink', [OtherController::class, 'addYoutube'])->name('store
 Route::get('/deleteytlink/{id}', [OtherController::class, 'deleteYoutube'])->name('delete.youtube');
 Route::get('/contacts', [ContactController::class, 'showContact'])->name('show.contacts');
 Route::get('/sentnews', [SendNewsController::class, 'showSentNews'])->name('sent.news');
+Route::get('/send-news/edit/{id}', [SendNewsController::class, 'editSentNews'])->name('edit.sent-news');
 Route::get('/delete-sent-news/{id}',[SendNewsController::class, 'deleteSentNews'])->name('delete.sent-news');
 Route::get('/comments', [OtherController::class, 'showComments'])->name('comments');
 Route::get('/delete-comment/{id}', [OtherController::class, 'deleteComments'])->name('delete.comments');
@@ -59,6 +60,7 @@ Route::post('/store-contact', 'storeContact')->name('store.contact');
 Route::controller(SendNewsController::class)->group(function(){
     Route::get('/send-news', 'sendNews')->name('send.news');
     Route::post('/store-sendnews', 'storeSendNews')->name('store.sendnews');
+
 });
 
 Route::post('/comments-store', [CommentsController::class, 'storeComments'])->name('store.comments');

@@ -68,6 +68,17 @@ class NewsController extends Controller
     }
 
     public function updateNews(Request $request){
+
+        $request->validate([
+            'category_id' => ['required'],
+                'category_name' => ['required'],
+                'user_id' => ['required'],
+                'news_title' => ['required'],
+                'news_details' => ['required'],
+                'tags' => ['required'],
+                'image' => ['required'],
+        ]);
+
         $news_id = $request->id;
         if($request->file('image')){
         $image = $request->file('image');

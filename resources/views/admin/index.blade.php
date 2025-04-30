@@ -117,7 +117,7 @@
                     </div> <!-- end widget-rounded-circle-->
                 </div> <!-- end col-->
             </div>
-            <!-- end row-->
+            <!--
 
             <div class="row">
                 <div class="col-lg-4">
@@ -129,13 +129,9 @@
                                     <i class="mdi mdi-dots-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                    <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                    <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                    <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Action</a>
                                 </div>
                             </div>
@@ -169,8 +165,8 @@
 
                             </div>
                         </div>
-                    </div> <!-- end card -->
-                </div> <!-- end col-->
+                    </div> 
+                </div> 
 
                 <div class="col-lg-8">
                     <div class="card">
@@ -189,19 +185,14 @@
                                 <div id="sales-analytics" class="mt-4" data-colors="#1abc9c,#4a81d4"></div>
                             </div>
                         </div>
-                    </div> <!-- end card -->
-                </div> <!-- end col-->
-            </div>
+                    </div> 
+                </div> 
+            </div> -->
+            <!-- end row -->
+ 
             <!-- end row -->
 
-            <div class="row">
-                <!-- end col -->
-
-                <!-- end col -->
-            </div>
-            <!-- end row -->
-
-        </div> <!-- container -->
+        </div> 
 
     </div>
 @endsection
