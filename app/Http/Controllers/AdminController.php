@@ -38,6 +38,11 @@ class AdminController extends Controller
         return view('admin.alladmins', compact('admins'));
     }
 
+    public function allUsers(){
+        $allusers = User::latest()->get();
+        return view('admin.allusers', compact('allusers'));
+    }
+
     public function addAdmin(){
         return view('admin.addadmin');
     }

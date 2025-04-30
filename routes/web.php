@@ -83,6 +83,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/edit-admin/{id}', 'editAdmin')->name('edit.admin');
     Route::put('/update-admin/{id}', 'updateAdmin')->name('update.admin');
     Route::get('/delete-admin/{id}', 'deleteAdmin')->name('delete.admin');
+    //Users
+    Route::get('/allusers', 'allUsers')->name('all.users');
 });
 
 //News Post routes in admin dasahboard

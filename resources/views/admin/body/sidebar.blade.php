@@ -71,7 +71,9 @@
                             <li>
                                 <a href="crm-contacts.html">Add Admin</a>
                             </li>
-
+                            <li>
+                                <a href="{{ route('all.users') }}">All Admins</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
