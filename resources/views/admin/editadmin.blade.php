@@ -16,10 +16,14 @@
                                 <input value="{{ $admin->name }}" name="name" type="name" class="form-control"
                                     id="inputEmail4" placeholder="Name">
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input value="{{ $admin->email }}" name="email" type="email" class="form-control"
-                                    id="inputEmail4" placeholder="Email">
+                            <div class="mb-3 col-md-2">
+                                <label for="inputState" class="form-label">Admin</label>
+                                <select name="user_id" id="inputState" class="form-select">
+                                    <option>Choose</option>
+                                    @foreach ($allusers as $user)
+                                        <option value="">{{ $user->role }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

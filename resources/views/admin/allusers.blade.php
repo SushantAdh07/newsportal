@@ -108,7 +108,7 @@
                                                     <td>{{ $item->email }}</td>
                                                     <td>{{$item->role}}</td>
                                                     <td><a class="btn btn-warning"
-                                                            href="">Edit</a> <a
+                                                            href="{{route('edit.admin', $item->id)}}">Edit</a> <a
                                                             class="btn btn-danger"
                                                             href="">Delete</a></td>
                                                 </tr>
