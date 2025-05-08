@@ -48,9 +48,9 @@ class AdminController extends Controller
     }
 
     public function editAdmin($id){
-        $admin = User::findOrFail($id);
-        $allusers = User::all();
-        return view('admin.editadmin', compact('admin', 'allusers'));
+        $user = User::findOrFail($id);
+        $roles = ['admin', 'user', 'editor'];
+        return view('admin.editadmin', compact('user', 'roles'));
     }
 
     public function updateAdmin(Request $request){
@@ -58,7 +58,7 @@ class AdminController extends Controller
 
         User::findOrFail($user)->update([
             'name'=>$request->name,
-            'email'=>$request->email,
+            
         ]);
 
         return redirect()->route('all.admins');
