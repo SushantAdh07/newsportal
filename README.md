@@ -76,54 +76,38 @@ This is a feature-rich news portal built with Laravel that includes:
 <li>Modern UI with responsive design</li>
 </ol>
 
-Features
-User Management
+## Features
+**User Management**
 Roles: Admin, Editor, Author, Reader
-
 Registration & Authentication
-
 Profile Management
-
 Password Reset
 
-News Management
-Create, Read, Update, Delete news articles
+**News Management**
+-Create, Read, Update, Delete news articles
+-Rich text editor for content creation
+-News categorization
+-Featured news section
+-News scheduling (publish now or later)
 
-Rich text editor for content creation
+**Categories**
+-Dynamic category management
+-Category-specific news listing
+-Category hierarchy support
 
-News categorization
+**Additional Features**
+-Comments system
+-News search functionality
+-Newsletter subscription
+-Social media sharing
+-Related news suggestions
 
-Featured news section
-
-News scheduling (publish now or later)
-
-Categories
-Dynamic category management
-
-Category-specific news listing
-
-Category hierarchy support
-
-Additional Features
-Comments system
-
-News search functionality
-
-Newsletter subscription
-
-Social media sharing
-
-Related news suggestions
-
-Installation
-Prerequisites
-PHP 8.0 or higher
-
-Composer
-
-MySQL
-
-Node.js (for frontend assets)
+## Installation
+**Prerequisites**
+-PHP 8.0 or higher
+-Composer
+-MySQL
+-Node.js (for frontend assets)
 
 Steps
 Clone the repository:
