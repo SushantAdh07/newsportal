@@ -1,5 +1,5 @@
 ## News Portal
-<img src="https://i.ibb.co/XrKLkn7Y/Screenshot-28.png" alt="News Portal">
+<a href="https://ibb.co/zTBxH3X6"><img src="https://i.ibb.co/PvPjz2cD/Screenshot-28.png" alt="News Portal" border="0"></a>
 
 ## Overview
 
