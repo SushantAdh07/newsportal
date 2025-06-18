@@ -112,9 +112,11 @@ Password Reset
 Steps
 Clone the repository:
 
+```
 bash
 git clone https://github.com/yourusername/news-portal.git
 cd news-portal
+```
 Install dependencies:
 
 bash
