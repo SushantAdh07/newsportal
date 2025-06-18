@@ -64,3 +64,105 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Overview
+
+This is a feature-rich news portal built with Laravel that includes:
+<ol>
+<li>Role-based user access (Admin, Editor, Author, Reader)</li>
+<li>Dynamic news management</li>
+<li>Category-based news organization</li>
+<li>Modern UI with responsive design</li>
+</ol>
+
+Features
+User Management
+Roles: Admin, Editor, Author, Reader
+
+Registration & Authentication
+
+Profile Management
+
+Password Reset
+
+News Management
+Create, Read, Update, Delete news articles
+
+Rich text editor for content creation
+
+News categorization
+
+Featured news section
+
+News scheduling (publish now or later)
+
+Categories
+Dynamic category management
+
+Category-specific news listing
+
+Category hierarchy support
+
+Additional Features
+Comments system
+
+News search functionality
+
+Newsletter subscription
+
+Social media sharing
+
+Related news suggestions
+
+Installation
+Prerequisites
+PHP 8.0 or higher
+
+Composer
+
+MySQL
+
+Node.js (for frontend assets)
+
+Steps
+Clone the repository:
+
+bash
+git clone https://github.com/yourusername/news-portal.git
+cd news-portal
+Install dependencies:
+
+bash
+composer install
+npm install
+Create and configure .env file:
+
+bash
+cp .env.example .env
+Generate application key:
+
+bash
+php artisan key:generate
+Run migrations and seeders:
+
+bash
+php artisan migrate --seed
+Compile frontend assets:
+
+bash
+npm run dev
+# or for production
+npm run build
+Start the development server:
+
+bash
+php artisan serve
+
+
+## Configuration
+Important environment variables to configure:
+Database connection
+Mail server settings
+Social media login credentials (if enabled)
+Cache settings
