@@ -163,9 +163,7 @@
                     </a>
                 </div>
                 @php
-                    $comments = App\Models\Comments::where('news_id', $news->id)
-                        ->latest()
-                        ->get();
+                    $comments = App\Models\Comments::where('news_id', $news->id)->latest()->get();
                 @endphp
 
                 <hr>
@@ -189,7 +187,8 @@
                                     <span class="wpcf7-form-control-wrap your-name"><input type="text"
                                             name="commentator" value="" size="40"
                                             class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                            aria-required="true" aria-invalid="false" placeholder="Your Name"></span>
+                                            aria-required="true" required aria-invalid="false"
+                                            placeholder="Your Name"></span>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -199,8 +198,8 @@
                                 <div class="contact-form">
                                     <span class="wpcf7-form-control-wrap news_details">
                                         <textarea name="comments" cols="20" rows="5"
-                                            class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"
-                                            placeholder="News Details...."></textarea>
+                                            class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" required aria-required="true"
+                                            aria-invalid="false" placeholder="News Details...."></textarea>
                                     </span>
                                 </div>
                             </div>
@@ -220,6 +219,7 @@
                         </div>
                     </div>
 
+
                     <div class="wpcf7-response-output" aria-hidden="true"></div>
                 </form>
                 <div class="container mt-3">
@@ -229,6 +229,14 @@
                         </div>
                     @endif
                 </div>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $item)
+                            <li>{{ $item }}</li>
+                        @endforeach
+                    </div>
+                @endif
 
                 <div class="author2">
                     <div class="author-content2">

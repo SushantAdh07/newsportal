@@ -26,7 +26,7 @@ class CommentsController extends Controller
         ]);
 
         
-        return redirect()->back()->with('message', 'Comments Added!');
+        return redirect()->back()->with(['message' => 'Comments Added!', 'errors' => 'Please fill the required field!']);
 
     }
 
