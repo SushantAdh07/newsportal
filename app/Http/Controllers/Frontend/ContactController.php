@@ -14,6 +14,12 @@ class ContactController extends Controller
 
     public function storeContact(Request $request){
 
+        $request->validate([
+            'contactname' => ['required'],
+            'contactemail' => ['required'],
+            'contacttext' => ['required']
+        ]);
+
         Contact::insert([
             'contactname' => $request-> contactname,
             'contactemail' => $request-> contactemail,
