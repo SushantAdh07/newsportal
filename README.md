@@ -59,7 +59,7 @@ This is a feature-rich news portal built with Laravel that includes:
 **Clone the repository:**
 
 ```
-git clone https://github.com/yourusername/news-portal.git
+git clone https://github.com/SushantAdh07/newsportal.git
 cd news-portal
 ```
 **Install dependencies:**
