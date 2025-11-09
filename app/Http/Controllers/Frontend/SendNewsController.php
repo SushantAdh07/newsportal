@@ -21,51 +21,63 @@ class SendNewsController extends Controller
         $this->newsRepository = $newsRepository;
     }
 
-    public function sendNews(){
+    public function sendNews()
+    {
         return view('frontend.sendnews');
     }
 
-    public function storeSendNews(Request $request){
+    public function storeSendNews(Request $request)
+    {
 
         $request->validate([
-            'send_news_title'=> ['required'],
-            'send_news_details'=> ['required'],
-            'sendername'=> ['required'],
-            'senderemail'=> ['required'],
-            'senderimage'=> ['nullable'],
-        ]);
+            'send_news_title' => 'required',
+            'send_news_details' => 'required',
+            'sendername' => 'required',
+            'senderemail' => 'required',
+            'senderimage' => 'nullable',
+        ], [
+            'required' => 'Field Cannot Be Empty',
+        ]
+    );
 
-        $senderimage = $request->file('senderimage');
-        $name_gen = hexdec(uniqid()) . '.' . $senderimage->getClientOriginalExtension();
-        $senderimagePath = 'uploads/news/' . $name_gen;
-        Storage::disk('public')->put($senderimagePath, file_get_contents($senderimage));
+        $senderimagePath = null;
+
+        if ($request->hasFile('senderimage')) {
+            $senderimage = $request->file('senderimage');
+            $name_gen = hexdec(uniqid()) . '.' . $senderimage->getClientOriginalExtension();
+            $senderimagePath = 'uploads/news/' . $name_gen;
+            Storage::disk('public')->put($senderimagePath, file_get_contents($senderimage));
+        }
 
         Sendnews::insert([
-            'send_news_title'=> $request-> send_news_title,
-            'send_news_details'=> $request-> send_news_details,
-            'sendername'=> $request-> sendername,
-            'senderemail'=> $request-> senderemail,
-            'senderimage'=> $senderimagePath,
-            
+            'send_news_title' => $request->send_news_title,
+            'send_news_details' => $request->send_news_details,
+            'sendername' => $request->sendername,
+            'senderemail' => $request->senderemail,
+            'senderimage' => $senderimagePath,
+
         ]);
         return redirect()->back();
     }
 
-    public function showSentNews(){
+    public function showSentNews()
+    {
         $sentnews = Sendnews::latest()->get();
         return view('admin.sentnews.sentnews', compact('sentnews'));
     }
 
-    public function editSentNews($id){
+    public function editSentNews($id)
+    {
         $adminuser = User::where('role', 'admin')->latest()->get();
         $category = $this->newsRepository->getAllCat();
         $sentnews = Sendnews::findOrFail($id);
         return view('admin.sentnews.editsentnews', compact('adminuser', 'category', 'sentnews'));
     }
 
-    public function deleteSentNews($id){
+    public function deleteSentNews($id)
+    {
         Sendnews::findOrFail($id)->delete();
-        $notifications = array (
+        $notifications = array(
             'message' => 'Deleted',
             'alert' => 'success'
         );
