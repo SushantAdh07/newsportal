@@ -102,16 +102,16 @@
                             </div>
 
                             <div class="sec-one-item2">
-                                {{-- @php
+                                 @php
                                     $nine = App\Models\News::where('status', 1)
                                         ->where('first_nine', 1)
                                         ->limit(9)
                                         ->get();
-                                @endphp --}}
+                                @endphp 
 
 
                                 <div class="row">
-                                    @foreach ($articles as $item)
+                                    @foreach ($nine as $item)
                                         <div class="themesBazar-3 themesBazar-m2">
 
                                             <div class="sec-one-wrpp2">

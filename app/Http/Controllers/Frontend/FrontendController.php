@@ -60,12 +60,16 @@ class FrontendController extends Controller
             ->get();
 
         //api-news
-        $response = Http::get('https://newsdata.io/api/1/latest', [
-            'apikey' => 'pub_9831c9d52be14759a4e8cb2850826765',
+        $response = Http::get('https://api.first.org/data/v1/news', [
             'limit' => 10,
         ]);
 
-        $articles = $response->json()['data'] ?? [];
+        $articles = array_map(function ($item){
+            return array_merge($item, [
+                'news_title'=> $item['title'],
+                'news_details'=> $item['summary'],
+            ]);
+        }, $response->json()['data'] ?? []);
 
         dd($articles);
 
