@@ -59,21 +59,8 @@ class FrontendController extends Controller
             ->limit(5)
             ->get();
 
-        //api-news
-        $response = Http::get('https://api.first.org/data/v1/news', [
-            'limit' => 10,
-        ]);
 
-        $articles = array_map(function ($item){
-            return array_merge($item, [
-                'news_title'=> $item['title'],
-                'news_details'=> $item['summary'],
-            ]);
-        }, $response->json()['data'] ?? []);
-
-        dd($articles);
-
-        return view('frontend.newshome', compact('news', 'category', 'skip_cat_0', 'skip_news_0', 'skip_cat_2', 'skip_news_2', 'skip_cat_3', 'skip_news_3', 'skip_cat_1', 'skip_news_1', 'articles'));
+        return view('frontend.newshome', compact('news', 'category', 'skip_cat_0', 'skip_news_0', 'skip_cat_2', 'skip_news_2', 'skip_cat_3', 'skip_news_3', 'skip_cat_1', 'skip_news_1'));
     }
 
 

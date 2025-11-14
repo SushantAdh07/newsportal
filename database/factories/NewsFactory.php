@@ -33,7 +33,7 @@ class NewsFactory extends Factory
 
             'post_date' => fake()->dateTimeBetween('2025-02-01', '2025-02-28')->format('Y-m-d'),
             'post_month' => date('F'),
-            'image' => fake()->url(),
+            'image' => fake()->imageUrl(640, 480),
             'created_at' => now(),
         ];
     }
