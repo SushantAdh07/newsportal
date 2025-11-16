@@ -27,8 +27,10 @@
                     <ul>
                         @foreach ($socials as $item)
                             <li> <a href="//{{ $item->socials }}" target="_blank" title="facebook"><i
-                                        class="lab la-facebook-f"></i> </a> </li>
+                                        class="lab la-youtube"></i> </a> </li>
                         @endforeach
+                        <li> <a href="//" target="_blank" title="facebook"><i
+                                        class="lab la-facebook-f"></i> </a> </li>
                         <li><a href="https://twitter.com/" target="_blank" title="twitter"><i class="lab la-twitter">
                                 </i> </a></li>
 
