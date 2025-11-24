@@ -19,7 +19,16 @@
                     <div class="contact-wrpp">
                         <h4 class="contactAddess-title text-center">
                             Contact Form </h4>
-                            
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div role="form" class="wpcf7" id="wpcf7-f437-o1" lang="en-US" dir="ltr">
                             <div class="screen-reader-response">
                                 <p role="status" aria-live="polite" aria-atomic="true"></p>
