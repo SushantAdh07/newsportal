@@ -149,17 +149,14 @@
                             class="lab la-facebook-f"></i></a><a href=" " target="_blank"><i
                             class="lab la-twitter"></i></a><a href=" " target="_blank"><i
                             class="lab la-linkedin-in"></i></a><a href=" " target="_blank"><i
-                            class="lab la-digg"></i></a><a href=" " target="_blank"><i
-                            class="lab la-pinterest-p"></i></a><a onclick="printFunction()" target="_blank"><i
-                            class="las la-print"></i>
-                        <script>
+                        {{-- <script>
                             document.getElementById('shareBtn').addEventListener('click', function() {
                                 var shareUrl = encodeURIComponent("{{ $shareUrl }}");
                                 var facebookShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + shareUrl;
                                 window.open(facebookShareUrl, 'facebook-share-dialog', 'width=800,height=600');
                                 return false;
                             });
-                        </script>
+                        </script> --}}
                     </a>
                 </div>
                 @php
@@ -238,7 +235,8 @@
                     </div>
                 @endif
 
-                <div class="author2">
+                @if ($comments->count() > 0)
+                    <div class="author2">
                     <div class="author-content2">
                         <h6 class="author-caption2">
                             <span> COMMENTS </span>
@@ -262,6 +260,7 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
 
 
 
