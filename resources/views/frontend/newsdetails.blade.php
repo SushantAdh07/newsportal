@@ -148,7 +148,7 @@
                     <a id="shareBtn" href="" target="_blank" title="Facebook"><i
                             class="lab la-facebook-f"></i></a><a href=" " target="_blank"><i
                             class="lab la-twitter"></i></a><a href=" " target="_blank"><i
-                            class="lab la-linkedin-in"></i></a><a href=" " target="_blank"><i
+                            class="lab la-linkedin-in"></i></a><a href=" " target="_blank">
                         {{-- <script>
                             document.getElementById('shareBtn').addEventListener('click', function() {
                                 var shareUrl = encodeURIComponent("{{ $shareUrl }}");

@@ -29,8 +29,8 @@
                             <li> <a href="//{{ $item->socials }}" target="_blank" title="facebook"><i
                                         class="lab la-youtube"></i> </a> </li>
                         @endforeach
-                        <li> <a href="//" target="_blank" title="facebook"><i
-                                        class="lab la-facebook-f"></i> </a> </li>
+                        <li> <a href="//" target="_blank" title="facebook"><i class="lab la-facebook-f"></i> </a>
+                        </li>
 
                         @auth
                             <li><a href="{{ route('user.logout') }}"><b> Logout </b></a> </li>
@@ -57,9 +57,7 @@
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="banner">
-                        <a href=" " target="_blank">
 
-                        </a>
                     </div>
                 </div>
             </div>
@@ -95,11 +93,10 @@
                                     href="{{ route('category.page', $category->id) }} ">{{ $category->category_name }}</a>
                             </li>
                         @endforeach
+                        @can('admin-access')
+                            <a style="color: white;" href="/admin" class="btn btn-primary">Dashboard</a>
+                        @endcan
 
-
-
-
-                        <a class="dd-toggle" href=" "><span class="icon-plus"></span></a></li>
                     </ul>
                 </div>
             </div>
