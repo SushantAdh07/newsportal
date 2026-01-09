@@ -46,7 +46,13 @@
 
                         <div class="mb-3">
                             <label for="example-fileinput" class="form-label">Image</label>
-                            <input type="file" name="image" id="example-fileinput" class="form-control">
+                            <input type="file" name="image" id="example-fileinput" class="form-control"
+                                accept="image/*">
+
+                            <div id="image-preview-container" class="mt-2" style="display: none;">
+                                <img id="image-preview" src="#" alt="Image Preview" class="img-thumbnail"
+                                    style="max-width: 200px; max-height: 200px;">
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -87,4 +93,25 @@
             </div> <!-- end card-->
         </div> <!-- end col -->
     </div>
+    <script>
+        document.getElementById('example-fileinput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('image-preview');
+            const previewContainer = document.getElementById('image-preview-container');
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                previewContainer.style.display = 'none';
+            }
+        });
+    </script>
 @endsection

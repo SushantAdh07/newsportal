@@ -94,7 +94,7 @@
                             </li>
                         @endforeach
                         @can('admin-access')
-                            <a style="color: white;" href="/admin" class="btn btn-primary">Dashboard</a>
+                            <a style="color: white;" href="/admin/dashboard" class="btn btn-primary">Dashboard</a>
                         @endcan
 
                     </ul>
