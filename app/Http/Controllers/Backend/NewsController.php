@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use App\Repositories\NewsRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
+use App\Services\NewsService;
 
 class NewsController extends Controller
 {
@@ -29,33 +30,9 @@ class NewsController extends Controller
         return view('backend.news.addnews', compact('category', 'adminuser'));
     }
 
-    public function storeNews(Request $request){
+    public function storeNews(Request $request, NewsService $newsService){
 
-        $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $imagePath = 'uploads/news/' . $name_gen;
-        Storage::disk('public')->put($imagePath, file_get_contents($image));
-
-        News::insert([
-            
-            'category_id' => $request->category_id,
-            
-            'user_id' => $request->user_id,
-            'news_title' => $request->news_title,
-            'news_title_slug' => strtolower(str_replace(' ', '-', $request->news_title)),
-            'news_details' => $request->news_details,
-            'tags' => $request->tags,
-            'breaking_news' => $request->breaking_news,
-            'top_slider' => $request->top_slider,
-            'first_three' => $request->first_three,
-            'first_nine' => $request->first_nine,
-            'post_date' => date('Y-m-d H:i:s'),
-            'post_month' => date('F'),
-            'image' => $imagePath,
-            'created_at' => now(),
-            
-
-        ]);
+        $newsService->store($request);
         return redirect()->route('all.news');
 
     }
