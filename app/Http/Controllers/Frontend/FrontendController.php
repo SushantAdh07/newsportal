@@ -21,46 +21,16 @@ class FrontendController extends Controller
         $category = Category::latest()->get();
         $news = News::latest()->get();
 
-        //category-1
-        $skip_cat_0 = Category::skip(0)->first();
+        $categories = Category::get()->keyBy('category_slug')
+            ->each(function ($category) {
+                $category->news = $category->news()
+                    ->where('status', 1)
+                    ->latest()
+                    ->take(5)
+                    ->get();
+            });
 
-        $skip_news_0 = News::where('status', 1)
-            ->where('category_id', optional($skip_cat_0)->id) // Safely access $skip_cat_0->id
-            ->orderBy('id', 'DESC')
-            ->limit(5)
-            ->get();
-
-
-        //category-2
-        $skip_cat_2 = Category::skip(0)->first();
-
-        $skip_news_2 = News::where('status', 1)
-            ->where('category_id', optional($skip_cat_2)->id) // Safely access $skip_cat_0->id
-            ->orderBy('id', 'DESC')
-            ->limit(5)
-            ->get();
-
-
-        //category-3
-        $skip_cat_3 = Category::skip(0)->first();
-
-        $skip_news_3 = News::where('status', 1)
-            ->where('category_id', optional($skip_cat_3)->id) // Safely access $skip_cat_0->id
-            ->orderBy('id', 'DESC')
-            ->limit(5)
-            ->get();
-
-        //category-4
-        $skip_cat_1 = Category::skip(0)->first();
-
-        $skip_news_1 = News::where('status', 1)
-            ->where('category_id', optional($skip_cat_1)->id) // Safely access $skip_cat_0->id
-            ->orderBy('id', 'DESC')
-            ->limit(5)
-            ->get();
-
-
-        return view('frontend.newshome', compact('news', 'category', 'skip_cat_0', 'skip_news_0', 'skip_cat_2', 'skip_news_2', 'skip_cat_3', 'skip_news_3', 'skip_cat_1', 'skip_news_1'));
+        return view('frontend.newshome', compact('news', 'category', 'categories'));
     }
 
 

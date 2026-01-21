@@ -102,12 +102,13 @@
                             </div>
 
                             <div class="sec-one-item2">
-                                 @php
+                                @php
                                     $nine = App\Models\News::where('status', 1)
                                         ->where('first_nine', 1)
+                                        ->orderBy('created_at', 'DESC')
                                         ->limit(9)
                                         ->get();
-                                @endphp 
+                                @endphp
 
 
                                 <div class="row">
@@ -164,23 +165,23 @@
 
 
                                         <!--<div data-mfp-src="#mymodal" class="live-icon modal-live"> <i
-                                                                        class="las la-play"></i> </div> -->
+                                                                                    class="las la-play"></i> </div> -->
 
                                     </div>
 
                                     <!--<div class="live-popup">
-                                                                    <div id="mymodal" class="mfp-hide" role="dialog" aria-labelledby="modal-titles"
-                                                                        aria-describedby="modal-contents">
-                                                                        <div id="modal-contents">
-                                                                            <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
-                                                                                <iframe class="embed-responsive-item"
-                                                                                    src="https://www.youtube.com/watch?v=JBKfwKkAX9U&list=PLBop-guvw1Nk3Up-RgxJ9j-Ayjnk45ayz&index=95&pp=iAQB"
-                                                                                    allowfullscreen="allowfullscreen" width="100%"
-                                                                                    height="400px"></iframe>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
+                                                                                <div id="mymodal" class="mfp-hide" role="dialog" aria-labelledby="modal-titles"
+                                                                                    aria-describedby="modal-contents">
+                                                                                    <div id="modal-contents">
+                                                                                        <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
+                                                                                            <iframe class="embed-responsive-item"
+                                                                                                src="https://www.youtube.com/watch?v=JBKfwKkAX9U&list=PLBop-guvw1Nk3Up-RgxJ9j-Ayjnk45ayz&index=95&pp=iAQB"
+                                                                                                allowfullscreen="allowfullscreen" width="100%"
+                                                                                                height="400px"></iframe>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div> -->
                                 </div>
                             </div>
                             <div class="themesBazar_widget">
@@ -261,14 +262,15 @@
             <section class="section-seven">
                 <div class="container">
 
-                    <h2 class="themesBazar_cat01"> <a href="">{{ $skip_cat_0->category_name }}</a> <span> <a
-                                href="{{ route('category.page', $skip_cat_0->id) }} "> More <i
-                                    class="las la-arrow-circle-right"></i> </a></span> </h2>
+                    <h2 class="themesBazar_cat01"> <a href="">{{ $categories['programs']->category_name }}</a>
+                        <span> <a href="{{ route('category.page', $categories['programs']->id) }} "> More <i
+                                    class="las la-arrow-circle-right"></i> </a></span>
+                    </h2>
 
                     <div class="secSecven-color">
                         <div class="row">
                             <div class="col-lg-5 col-md-5">
-                                @foreach ($skip_news_0 as $item)
+                                @foreach ($categories['programs']->news as $item)
                                     @if ($loop->index < 1)
                                         <div class="black-bg">
                                             <div class="secSeven-image">
@@ -290,7 +292,7 @@
                             <div class="col-lg-7 col-md-7">
 
                                 <div class="row">
-                                    @foreach ($skip_news_0 as $item)
+                                    @foreach ($categories['programs']->news as $item)
                                         @if ($loop->index > 0)
                                             <div class="themesBazar-2 themesBazar-m2">
 
@@ -324,43 +326,45 @@
                         <div class="col-lg-4 col-md-4">
 
                             <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
-                                    {{ $skip_cat_3->category_name }} </a> </h2>
+                                    {{ $categories['sports']->category_name }} </a> </h2>
 
                             <div class="white-bg">
-                                @foreach ($skip_news_3 as $item)
-                                    @if ($loop->index > 1)
-                                        <div class="secFive-image">
-                                            <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                    src="{{ asset($item->image) }}"></a>
-                                            <div class="secFive-title">
-                                                <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                            </div>
+                                @foreach ($categories['sports']->news as $item)
+                                    <div class="secFive-image">
+                                        <a href="{{ route('details', $item->id) }} "><img class="lazyload"
+                                                src="{{ asset($item->image) }}"></a>
+                                        <div class="secFive-title">
+                                            <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
                                         </div>
-                                    @endif
+                                    </div>
                                 @endforeach
-                                <div class="secFive-smallItem">
-                                    @foreach ($skip_news_3 as $item)
-                                        @if ($loop->index < 3)
-                                            <div class="secFive-smallImg">
-                                                <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                        src="{{ asset($item->image) }}"></a>
-                                                <h5 class="secFive_title2">
-                                                    <a
-                                                        href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                                </h5>
-                                            </div>
-                                        @endif
-                                    @endforeach
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
 
                             <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
-                                    {{ $skip_cat_1->category_name }} </a> </h2>
+                                    {{ $categories['international']->category_name }} </a> </h2>
 
                             <div class="white-bg">
-                                @foreach ($skip_news_1 as $item)
+                                @foreach ($categories['international']->news as $item)
+                                    <div class="secFive-image">
+                                        <a href="{{ route('details', $item->id) }} "><img class="lazyload"
+                                                src="{{ asset($item->image) }}"></a>
+                                        <div class="secFive-title">
+                                            <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+
+                            <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
+                                    {{ $categories['activities']->category_name }} </a> </h2>
+
+                            <div class="white-bg">
+                                @foreach ($categories['activities']->news as $item)
                                     @if ($loop->index < 1)
                                         <div class="secFive-image">
                                             <a href="{{ route('details', $item->id) }} "><img class="lazyload"
@@ -372,40 +376,7 @@
                                     @endif
                                 @endforeach
                                 <div class="secFive-smallItem">
-                                    @foreach ($skip_news_1 as $item)
-                                        @if ($loop->index > 0)
-                                            <div class="secFive-smallImg">
-                                                <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                        src="{{ asset($item->image) }}"></a>
-                                                <h5 class="secFive_title2">
-                                                    <a
-                                                        href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                                </h5>
-                                            </div>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-
-                            <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
-                                    {{ $skip_cat_2->category_name }} </a> </h2>
-
-                            <div class="white-bg">
-                                @foreach ($skip_news_2 as $item)
-                                    @if ($loop->index < 1)
-                                        <div class="secFive-image">
-                                            <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                    src="{{ asset($item->image) }}"></a>
-                                            <div class="secFive-title">
-                                                <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                                <div class="secFive-smallItem">
-                                    @foreach ($skip_news_2 as $item)
+                                    @foreach ($categories['activities']->news as $item)
                                         @if ($loop->index > 0)
                                             <div class="secFive-smallImg">
                                                 <a href="{{ route('details', $item->id) }} "><img class="lazyload"
