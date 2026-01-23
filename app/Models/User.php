@@ -37,4 +37,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function newsSubscription(){
+        return $this->hasOne(NewsSubscription::class);
+    }
+
+    public function isSubscribedToNews(){
+        return $this->newsSubscription() && $this->newsSubscription->is_active;
+    }
 }
