@@ -16,69 +16,66 @@
                             <form action="{{ route('register') }}" method="POST" class="wpcf7-form init"
                                 enctype="multipart/form-data" novalidate="novalidate" data-status="init">
                                 @csrf
-                                <div style="display: none;">
-                                </div>
-                                <div class="main_section">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="contact-title ">
-                                            Name
-                                        </div>
-                                        <div class="contact-form">
-                                            <span class="wpcf7-form-control-wrap sub_title">
-                                                <input id="name" class="block mt-1 w-full" type="text"
-                                                    name="name" value="" size="40" aria-invalid="false"
-                                                    placeholder="Name"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="contact-title ">
-                                            Email *
-                                        </div>
-                                        <div class="contact-form">
-                                            <span class="wpcf7-form-control-wrap sub_title">
-                                                <input id="email" class="block mt-1 w-full" type="email"
-                                                    name="email" value="" size="40" aria-invalid="false"
-                                                    placeholder="Email"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="contact-title ">
-                                            Password *
-                                        </div>
-                                        <div class="contact-form">
-                                            <span class="wpcf7-form-control-wrap sub_title"><input id="password"
-                                                    type="password" name="password" value="" size="40"
-                                                    class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-                                                    placeholder="Password"></span>
-                                        </div>
+
+                                <!-- Name Field -->
+                                <div class="mb-3">
+                                    <label for="name" class="contact-title">Name *</label>
+                                    <div class="contact-form">
+                                        <input id="name"
+                                            class="form-control @if ($errors->has('name')) is-invalid @endif"
+                                            type="text" name="name" value="{{ old('name') }}" placeholder="Name">
+                                        @if ($errors->has('name'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('name') }}
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="contact-btn">
-                                            <input type="submit" value="Submit"
-                                                class="wpcf7-form-control has-spinner wpcf7-submit"><span
-                                                class="wpcf7-spinner"></span>
-                                        </div>
+
+                                <!-- Email Field -->
+                                <div class="mb-3">
+                                    <label for="email" class="contact-title">Email *</label>
+                                    <div class="contact-form">
+                                        <input id="email"
+                                            class="form-control @if ($errors->has('email')) is-invalid @endif"
+                                            type="email" name="email" value="{{ old('email') }}" placeholder="Email">
+                                        @if ($errors->has('email'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('email') }}
+                                            </div>
+                                        @endif
                                     </div>
-                                    <a class="mt-3" href="{{ route('login') }}">Have a account? Login
-                                        here</a>
                                 </div>
+
+                                <!-- Password Field -->
+                                <div class="mb-3">
+                                    <label for="password" class="contact-title">Password *</label>
+                                    <div class="contact-form">
+                                        <input id="password"
+                                            class="form-control @if ($errors->has('password')) is-invalid @endif"
+                                            type="password" name="password" placeholder="Password">
+                                        @if ($errors->has('password'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('password') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="contact-btn">
+                                    <input type="submit" value="Submit"
+                                        class="wpcf7-form-control has-spinner wpcf7-submit">
+                                    <span class="wpcf7-spinner"></span>
+                                </div>
+
+                                <a class="mt-3" href="{{ route('login') }}">Have an account? Login here</a>
+                            </form>
                         </div>
-                        </form>
+
+
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger mt-3">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

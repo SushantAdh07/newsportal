@@ -14,15 +14,6 @@
                                 <ul></ul>
                             </div>
 
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul class="mb-0">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
 
 
                             <form action="{{ route('store.sendnews') }} " method="post" class="wpcf7-form init"
@@ -38,7 +29,13 @@
                                             <div class="contact-form">
                                                 <span class="wpcf7-form-control-wrap news_title"><input type="text"
                                                         name="send_news_title" value="{{ old('send_news_title') }}"
-                                                        class="wpcf7-form-control wpcf7-text" placeholder="News Title Here">
+                                                        class="wpcf7-form-control wpcf7-text @if ($errors->has('send_news_title')) is-invalid @endif"
+                                                        placeholder="News Title Here">
+                                                    @if ($errors->has('send_news_title'))
+                                                        <div class="invalid-feedback">
+                                                            {{ $errors->first('send_news_title') }}
+                                                        </div>
+                                                    @endif
                                                 </span>
                                             </div>
                                         </div>
@@ -51,8 +48,13 @@
                                             <div class="contact-form">
                                                 <span class="wpcf7-form-control-wrap news_details">
                                                     <textarea name="send_news_details" cols="40" rows="10"
-                                                        class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"
-                                                        placeholder="News Details...."></textarea>
+                                                        class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required @if ($errors->has('send_news_details')) is-invalid @endif"
+                                                        aria-required="true" aria-invalid="false" placeholder="News Details...." required></textarea>
+                                                    @if ($errors->has('send_news_details'))
+                                                        <div class="invalid-feedback">
+                                                            {{ $errors->first('send_news_details') }}
+                                                        </div>
+                                                    @endif
                                                 </span>
                                             </div>
                                         </div>
@@ -65,9 +67,14 @@
                                             <div class="contact-form">
                                                 <span class="wpcf7-form-control-wrap your-name"><input type="text"
                                                         name="sendername" value="" size="40"
-                                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                        aria-required="true" aria-invalid="false"
-                                                        placeholder="Your Name"></span>
+                                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required @if ($errors->has('sendername')) is-invalid @endif"
+                                                        aria-required="true" aria-invalid="false" placeholder="Your Name">
+                                                    @if ($errors->has('sendername'))
+                                                        <div class="invalid-feedback">
+                                                            {{ $errors->first('sendername') }}
+                                                        </div>
+                                                    @endif
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
@@ -77,8 +84,14 @@
                                             <div class="contact-form">
                                                 <span class="wpcf7-form-control-wrap your-email"><input type="email"
                                                         name="senderemail" value="" size="40"
-                                                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email"
-                                                        aria-invalid="false" placeholder="Your Email"></span>
+                                                        class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email @if ($errors->has('senderemail')) is-invalid @endif"
+                                                        aria-invalid="false" placeholder="Your Email">
+                                                    @if ($errors->has('senderemail'))
+                                                        <div class="invalid-feedback">
+                                                            {{ $errors->first('senderemail') }}
+                                                        </div>
+                                                    @endif
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -89,9 +102,16 @@
                                         </div>
                                         <div class="contact-form">
                                             <span class="wpcf7-form-control-wrap news_image"><input type="file"
-                                                    name="senderimage" size="40" class="wpcf7-form-control wpcf7-file"
+                                                    name="senderimage" size="40"
+                                                    class="wpcf7-form-control wpcf7-file @if ($errors->has('send_news_title')) is-invalid @endif"
                                                     accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv"
-                                                    aria-invalid="false"></span>
+                                                    aria-invalid="false">
+                                                @if ($errors->has('senderimage'))
+                                                    <div class="invalid-feedback">
+                                                        {{ $errors->first('senderimage') }}
+                                                    </div>
+                                                @endif
+                                            </span>
                                         </div>
                                     </div>
 

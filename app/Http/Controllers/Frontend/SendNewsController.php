@@ -36,7 +36,10 @@ class SendNewsController extends Controller
             'senderemail' => 'required',
             'senderimage' => 'nullable',
         ], [
-            'required' => 'Field Cannot Be Empty',
+            'send_news_title.required' => 'This field cannot be empty',
+            'send_news_details.required' => 'This field cannot be empty',
+            'sendername.required' => 'This field cannot be empty',
+            'senderemail.required' => 'This field cannot be empty',
         ]
     );
 

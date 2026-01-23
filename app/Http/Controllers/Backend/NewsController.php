@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendNewsNotification;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Category;
@@ -26,13 +27,14 @@ class NewsController extends Controller
 
     public function  addNews(){
         $category = $this->newsRepository->getAllCat();
-        $adminuser = User::where('role', 'admin')->get();
-        return view('backend.news.addnews', compact('category', 'adminuser'));
+        $adminuser = User::where('role', 'admin')->latest()->get();
+        return view('backend.news.addnews', compact('category', 'editor'));
     }
 
     public function storeNews(Request $request, NewsService $newsService){
 
-        $newsService->store($request);
+        $news = $newsService->store($request);
+        SendNewsNotification::dispatch($news);
         return redirect()->route('all.news');
 
     }

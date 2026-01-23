@@ -136,13 +136,6 @@
                                             </div>
                                         </div>
                                     @endforeach
-
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -187,7 +180,7 @@
                             <div class="themesBazar_widget">
                                 <h3 style="margin-top:5px"> OLD NEWS </h3>
                             </div>
-                            <form class="wordpress-date" action="{{ route('search-by-date') }} " method="post">
+                            <form class="wordpress-date" action="{{ route('search-by-date') }} " method="get">
                                 @csrf
                                 <input type="date" id="wordpress" placeholder="Select Date" autocomplete="off"
                                     name="date" class="hasDatepicker">
@@ -320,75 +313,60 @@
             </section>
 
 
-            <section class="section-five">
+            <section class="section-eight">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4">
 
-                            <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
-                                    {{ $categories['sports']->category_name }} </a> </h2>
+                    <h2 class="themesBazar_cat01"> <a href="">{{ $categories['activities']->category_name }}</a>
+                        <span> <a href="{{ route('category.page', $categories['activities']->id) }} "> More <i
+                                    class="las la-arrow-circle-right"></i> </a></span>
+                    </h2>
 
-                            <div class="white-bg">
-                                @foreach ($categories['sports']->news as $item)
-                                    <div class="secFive-image">
-                                        <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                src="{{ asset($item->image) }}"></a>
-                                        <div class="secFive-title">
-                                            <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-
-                            <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
-                                    {{ $categories['international']->category_name }} </a> </h2>
-
-                            <div class="white-bg">
-                                @foreach ($categories['international']->news as $item)
-                                    <div class="secFive-image">
-                                        <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                src="{{ asset($item->image) }}"></a>
-                                        <div class="secFive-title">
-                                            <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-
-                            <h2 class="themesBazar_cat04"> <a href=" "> <i class="las la-align-justify"></i>
-                                    {{ $categories['activities']->category_name }} </a> </h2>
-
-                            <div class="white-bg">
+                    <div class="secSecven-color">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5">
                                 @foreach ($categories['activities']->news as $item)
                                     @if ($loop->index < 1)
-                                        <div class="secFive-image">
-                                            <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                    src="{{ asset($item->image) }}"></a>
-                                            <div class="secFive-title">
+                                        <div class="white-bg">
+                                            <div class="secSeven-image">
+                                                <a href="{{ route('details', $item->id) }} "><img class="lazyload"
+                                                        src="{{ $item->image }}"></a>
+                                                <a href="{{ route('details', $item->id) }} " class="video-icon6"><i
+                                                        class="la la-play"></i></a>
+                                            </div>
+                                            <h6 class="secSeven-title">
                                                 <a href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
+                                            </h6>
+                                            <div class="secSeven-details">
+                                                <a href="{{ route('details', $item->id) }}"> Read News</a>
                                             </div>
                                         </div>
                                     @endif
                                 @endforeach
-                                <div class="secFive-smallItem">
+                            </div>
+                            <div class="col-lg-7 col-md-7">
+
+                                <div class="row">
                                     @foreach ($categories['activities']->news as $item)
                                         @if ($loop->index > 0)
-                                            <div class="secFive-smallImg">
-                                                <a href="{{ route('details', $item->id) }} "><img class="lazyload"
-                                                        src="{{ asset($item->image) }}"></a>
-                                                <h5 class="secFive_title2">
-                                                    <a
-                                                        href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
-                                                </h5>
+                                            <div class="themesBazar-2 themesBazar-m2">
+
+                                                <div class="secEight-wrpp ">
+                                                    <div class="secSeven-image2">
+                                                        <a href="{{ route('details', $item->id) }} "><img
+                                                                class="lazyload" src="{{ $item->image }}"></a>
+                                                        <h5 class="secSeven-title2">
+                                                            <a
+                                                                href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         @endif
                                     @endforeach
+
                                 </div>
+
                             </div>
                         </div>
                     </div>

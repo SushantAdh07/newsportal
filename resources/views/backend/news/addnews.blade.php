@@ -24,12 +24,12 @@
 
                             </div>
                             <div class="mb-3 col-md-2">
-                                <label for="inputState" class="form-label">Admin</label>
+                                <label for="inputState" class="form-label">Editor</label>
                                 <select name="user_id" id="inputState" class="form-select">
                                     <option>Choose</option>
-                                    @foreach ($adminuser as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
+                                    
+                                        <option value="{{ $editor->id }}">{{ $editor->name }}</option>
+                                    
                                 </select>
                             </div>
                         </div>
