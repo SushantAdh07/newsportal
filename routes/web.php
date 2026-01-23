@@ -102,7 +102,7 @@ Route::controller(NewsController::class)->group(function(){
 Route::get('/', [FrontendController::class, 'home']);
 Route::get('/news/category/{id}', [FrontendController::class, 'CatWiseNews'])->name('category.page');
 Route::get('/news-details/{id}', [FrontendController::class, 'Details'])->name('details');
-Route::post('/searchbydate', [FrontendController::class, 'searchByDate'])->name('search-by-date');
+Route::get('/searchbydate', [FrontendController::class, 'searchByDate'])->name('search-by-date');
 Route::get('/search-news', [FrontendController::class, 'search'])->name('news.search');
 Route::get('/logout', [UserController::class, 'userLogout'])->name('user.logout');
 

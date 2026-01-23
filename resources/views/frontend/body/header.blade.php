@@ -1,7 +1,8 @@
 @php
     $ctime = date('Y-m-d');
     $categories = App\Models\Category::orderBy('category_name', 'ASC')->limit(7)->get();
-    $socials = App\Models\Socials::latest()->get();
+    $social = App\Models\Socials::latest()->first();
+    $youtube = App\Models\Youtube::latest()->first();
 @endphp
 
 
@@ -25,11 +26,11 @@
             <div class="col-lg-4 col-md-4">
                 <div class="header-social">
                     <ul>
-                        @foreach ($socials as $item)
-                            <li> <a href="//{{ $item->socials }}" target="_blank" title="facebook"><i
+                        
+                            <li> <a href="//{{ $youtube->ytlink }}" target="_blank" title="Youtube"><i
                                         class="lab la-youtube"></i> </a> </li>
-                        @endforeach
-                        <li> <a href="//" target="_blank" title="facebook"><i class="lab la-facebook-f"></i> </a>
+                        
+                        <li> <a href="//{{ $social->socials}}" target="_blank" title="facebook"><i class="lab la-facebook-f"></i> </a>
                         </li>
 
                         @auth
