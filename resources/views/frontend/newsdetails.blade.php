@@ -145,10 +145,8 @@
                 <div class="single-page-social">
 
 
-                    <a id="shareBtn" href="" target="_blank" title="Facebook"><i
-                            class="lab la-facebook-f"></i></a><a href=" " target="_blank"><i
-                            class="lab la-twitter"></i></a><a href=" " target="_blank"><i
-                            class="lab la-linkedin-in"></i></a><a href=" " target="_blank">
+                    <a id="shareBtn" href="https://www.facebook.com/sharer/sharer.php?u={{ url('news-details/' . $news->id) }}" target="_blank" title="Facebook"><i
+                            class="lab la-facebook-f"></i>
                         {{-- <script>
                             document.getElementById('shareBtn').addEventListener('click', function() {
                                 var shareUrl = encodeURIComponent("{{ $shareUrl }}");
@@ -230,36 +228,36 @@
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         @foreach ($errors->all() as $item)
-                            <li>{{ $item }}</li>
+                            <li class="list-group-item list-group-item-danger">{{ $item }}</li>
                         @endforeach
                     </div>
                 @endif
 
                 @if ($comments->count() > 0)
                     <div class="author2">
-                    <div class="author-content2">
-                        <h6 class="author-caption2">
-                            <span> COMMENTS </span>
-                        </h6>
-                        @foreach ($comments as $key => $item)
-                            <hr>
+                        <div class="author-content2">
+                            <h6 class="author-caption2">
+                                <span> COMMENTS </span>
+                            </h6>
+                            @foreach ($comments as $key => $item)
+                                <hr>
 
 
-                            <div class="authorContent">
-                                <h5 class="card-title">
-                                    <strong>{{ $key + 1 }}.
-                                        {{ $item->commentator }}</strong>
-                                    <h6 class="card-subtitle text-muted">{{ $item->created_at }}</h6>
-                                </h5>
+                                <div class="authorContent">
+                                    <h5 class="card-title">
+                                        <strong>{{ $key + 1 }}.
+                                            {{ $item->commentator }}</strong>
+                                        <h6 class="card-subtitle text-muted">{{ $item->created_at }}</h6>
+                                    </h5>
 
-                                <div class="author-details">
-                                    <p>{{ $item->comments }}</p>
+                                    <div class="author-details">
+                                        <p>{{ $item->comments }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                        @endforeach
+                                <hr>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
                 @endif
 
 

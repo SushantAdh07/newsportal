@@ -18,6 +18,10 @@ class ContactController extends Controller
             'contactname' => ['required'],
             'contactemail' => ['required'],
             'contacttext' => ['required']
+        ], [
+            'contactname.required' => 'Name is required',
+            'contactemail.required' => 'Email is required',
+            'contacttext.required' => 'Message is required',
         ]);
 
         Contact::insert([

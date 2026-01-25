@@ -16,6 +16,9 @@ class CommentsController extends Controller
             'commentator'=> 'required',
             'comments'=>'required',
 
+        ], [
+            'commentator.required' => 'Name is required',
+            'comments.required' => 'Comment is required',
         ]);
 
         Comments::insert([
@@ -26,7 +29,7 @@ class CommentsController extends Controller
         ]);
 
         
-        return redirect()->back()->with(['message' => 'Comments Added!', 'errors' => 'Please fill the required field!']);
+        return redirect()->back();
 
     }
 
