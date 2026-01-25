@@ -4,7 +4,7 @@
             <div class="menu-footer-menu-container">
                 <ul id="menu-footer-menu" class="menu">
                     <li id="menu-item-552" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-552">
-                        <a href=" ">ABOUT US</a>
+                        <a href="/https://disabilitymediacenter.com.np/about">ABOUT US</a>
                     </li>
                     <li id="menu-item-556"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-556"><a
@@ -12,12 +12,10 @@
                     <li id="menu-item-558"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-558"><a
                             href="{{route('send.news')}}">SEND NEWS </a></li>
-                    <li id="menu-item-553"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-553"><a
-                            href=" ">PHOTO GALLERY</a></li>
+                    
                     <li id="menu-item-554"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-554"><a
-                            href=" ">VIDEO GALLERY</a></li>
+                            href="/http://https//www.youtube.com/@apangata-aawaz">VIDEO GALLERY</a></li>
 
 
                 </ul>
