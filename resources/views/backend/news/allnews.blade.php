@@ -154,11 +154,18 @@
 
                                             </tbody>
                                         @endforeach
+
                                     </table>
 
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
+                                </div>
+                                <div class="d-flex justify-content-end p-2">
+                                    <span>{{ $news->links() }}</span>
+                                </div>
+                                 <!-- end card body-->
+                            </div>
+                            <!-- end card -->
+                        </div>
+                        <!-- end col-->
                     </div>
                     <!-- end row-->
 

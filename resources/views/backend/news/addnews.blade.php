@@ -28,7 +28,7 @@
                                 <select name="user_id" id="inputState" class="form-select">
                                     <option>Choose</option>
                                     
-                                        <option value="{{ $editor->id }}">{{ $editor->name }}</option>
+                                        <option value="{{ $localUser->id }}">{{ $localUser->name }}</option>
                                     
                                 </select>
                             </div>

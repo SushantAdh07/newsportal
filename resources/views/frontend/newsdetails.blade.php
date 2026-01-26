@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="single-details">
+                <div class="single-details" style="white-space: pre-line;">
                     <p>{{ $news->news_details }}</p>
                 </div>
                 <div class="singlePage2-tag">
