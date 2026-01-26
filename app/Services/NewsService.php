@@ -9,11 +9,11 @@ use Illuminate\Support\Str;
 
 class NewsService
 {
-    public function store(Request $request): void
+    public function store(Request $request): News
     {
         $imagePath = $this->uploadImage($request->file('image'));
 
-        News::create([
+        return News::create([
             'category_id' => $request->category_id,
             'user_id' => $request->user_id,
             'news_title' => $request->news_title,

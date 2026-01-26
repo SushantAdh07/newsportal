@@ -21,7 +21,7 @@ class NewsMail extends Mailable
      */
     public function __construct(public News $news)
     {
-        //
+        
     }
 
     public function build(){
@@ -49,7 +49,7 @@ class NewsMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.news-notifications',
         );
     }
 

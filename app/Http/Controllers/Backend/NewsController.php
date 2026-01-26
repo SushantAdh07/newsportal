@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use App\Repositories\NewsRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
 use App\Services\NewsService;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -27,14 +28,14 @@ class NewsController extends Controller
 
     public function  addNews(){
         $category = $this->newsRepository->getAllCat();
-        $adminuser = User::where('role', 'admin')->latest()->get();
-        return view('backend.news.addnews', compact('category', 'editor'));
+        $localUser = Auth::user(); //for dropdown on add-news
+        return view('backend.news.addnews', compact('category', 'localUser'));
     }
 
     public function storeNews(Request $request, NewsService $newsService){
 
         $news = $newsService->store($request);
-        SendNewsNotification::dispatch($news);
+        //SendNewsNotification::dispatch($news);
         return redirect()->route('all.news');
 
     }

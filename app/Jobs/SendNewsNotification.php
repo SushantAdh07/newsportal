@@ -24,7 +24,7 @@ class SendNewsNotification implements ShouldQueue
      */
     public function __construct(public News $news)
     {
-        //
+        $this->news = $news;
     }
 
     /**
