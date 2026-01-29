@@ -13,12 +13,12 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input value="{{ $user->name }}" name="name" type="name" class="form-control"
+                                <input value="{{ $user->name }}" name="name" type="name" class="form-control" disabled
                                     id="inputEmail4" placeholder="Name">
                             </div>
                             <div class="mb-3 col-md-2">
                                 <label for="inputState" class="form-label">Admin</label>
-                                <select name="user_id" id="inputState" class="form-select">
+                                <select name="role" id="inputState" class="form-select">
                                     <option>Choose</option>
                                     @foreach ($roles as $role)
                                         <option value="{{$role}}" @selected($role == auth()->user()->role)>{{ ucfirst($role) }}</option>
