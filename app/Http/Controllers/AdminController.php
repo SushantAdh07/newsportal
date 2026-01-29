@@ -39,8 +39,8 @@ class AdminController extends Controller
     }
 
     public function allUsers(){
-        $allusers = User::latest()->get();
-        return view('admin.allusers', compact('allusers'));
+        $allUsers = User::latest()->paginate(10);
+        return view('admin.allusers', compact('allUsers'));
     }
 
     public function addAdmin(){
@@ -57,8 +57,7 @@ class AdminController extends Controller
         $user = $request->id;
 
         User::findOrFail($user)->update([
-            'name'=>$request->name,
-            
+            'role'=>$request-> role,
         ]);
 
         return redirect()->route('all.admins');

@@ -85,7 +85,7 @@
                                     <h4 class="header-title">Basic Data Table</h4>
                                     <p class="text-muted font-13 mb-4">
                                         This tables contain all users registered in our portal:
-                                        <code>{{$allusers->count()}}</code>.
+                                        <code>{{$allUsers->count()}}</code>.
                                     </p>
                                     <a href="" class="btn btn-primary">Add Admin</a>
 
@@ -100,7 +100,7 @@
                                             </tr>
                                         </thead>
 
-                                        @foreach ($allusers as $key => $item)
+                                        @foreach ($allUsers as $key => $item)
                                             <tbody>
                                                 <tr>
                                                     <td>{{ $key + 1 }}</td>
@@ -110,7 +110,7 @@
                                                     <td><a class="btn btn-warning"
                                                             href="{{route('edit.admin', $item->id)}}">Edit</a> <a
                                                             class="btn btn-danger"
-                                                            href="">Delete</a></td>
+                                                            href="{{route('delete.admin', $item->id)}}">Delete</a></td>
                                                 </tr>
 
 
@@ -119,6 +119,9 @@
                                     </table>
 
                                 </div> <!-- end card body-->
+                            </div>
+                            <div>
+                                {{ $allUsers->links()}}
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div>
