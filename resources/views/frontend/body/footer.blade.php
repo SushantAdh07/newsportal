@@ -15,7 +15,7 @@
                     
                     <li id="menu-item-554"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-554"><a
-                            href="/http://https//www.youtube.com/@apangata-aawaz">VIDEO GALLERY</a></li>
+                            href="https://www.youtube.com/@apangata-aawaz">VIDEO GALLERY</a></li>
 
 
                 </ul>

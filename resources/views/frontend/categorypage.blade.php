@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-8">
                             <div class="rachive-info-cats">
-                                <a href=" "><i class="las la-home"></i> </a> <i class="las la-chevron-right"></i>
+                                <a href="/"><i class="las la-home"></i> </a> <i class="las la-chevron-right"></i>
                                 {{ $category->category_name }}
                             </div>
                             <div class="row">
@@ -63,25 +63,26 @@
                             <div class="row">
                                 @foreach ($news as $item)
                                     @if ($loop->index > 0)
-                                        <div class="archive1-custom-col-3">
-                                            <div class="archive-item-wrpp2">
-                                                <div class="archive-shadow arch_margin">
-                                                    <div class="archive1_image2">
-                                                        <a href="{{ route('details', $item->id) }}"><img class="lazyload"
+                                        <div class="themesBazar-3 themesBazar-m2">
+
+                                            <div class="sec-one-wrpp2">
+
+                                                <div class="secOne-news">
+                                                    <div class="secOne-image2">
+                                                        <a href="{{ route('details', $item->id) }} "><img class="lazyload"
                                                                 src="{{ asset($item->image) }}"></a>
-                                                        <div class="archive1-meta">
-                                                            <a href="{{ route('details', $item->id) }}"><i
-                                                                    class="la la-tags"> </i>
-                                                                {{ $item->created_at }}
-                                                            </a>
-                                                        </div>
                                                     </div>
-                                                    <div class="archive1-padding">
-                                                        <div class="archive1-title2"><a
-                                                                href="{{ route('details', $item->id) }}">{{ $item->news_title }}</a>
-                                                        </div>
-                                                    </div>
+                                                    <h4 class="secOne-title2">
+                                                        <a
+                                                            href="{{ route('details', $item->id) }} ">{{ $item->news_title }}</a>
+                                                    </h4>
                                                 </div>
+                                                <div class="cat-meta">
+                                                    <a href=" "> <i class="lar la-newspaper"></i>
+                                                        {{ $item->created_at }}
+                                                    </a>
+                                                </div>
+
                                             </div>
                                         </div>
                                     @endif
@@ -141,13 +142,13 @@
                                                 <div class="archive-tabWrpp archiveTab-border">
 
                                                     <div class="archiveTab-image ">
-                                                        <a href=" "><img class="lazyload"
+                                                        <a href="{{ route('details', $item->id) }}"><img class="lazyload"
                                                                 src="{{ asset($item->image) }}"></a>
                                                     </div>
                                                     <a href=" " class="archiveTab-icon2"><i
                                                             class="la la-play"></i></a>
                                                     <h4 class="archiveTab_hadding"><a
-                                                            href="{{ route('details', $item->id) }} ">{{ $item->news_title }}
+                                                            href="{{ route('details', $item->id) }}">{{ $item->news_title }}
                                                         </a>
                                                     </h4>
                                                     <div class="archive-conut">
@@ -173,13 +174,13 @@
                                             @foreach ($news as $item)
                                                 <div class="archive-tabWrpp archiveTab-border">
                                                     <div class="archiveTab-image ">
-                                                        <a href=" "><img class="lazyload"
+                                                        <a href="{{ route('details', $item->id) }}"><img class="lazyload"
                                                                 src={{ asset($item->image) }}></a>
                                                     </div>
-                                                    <a href=" " class="archiveTab-icon2"><i
+                                                    <a href="{{ route('details', $item->id) }}" class="archiveTab-icon2"><i
                                                             class="la la-play"></i></a>
                                                     <h4 class="archiveTab_hadding"><a
-                                                            href=" ">{{ $item->news_title }}</a>
+                                                            href="{{ route('details', $item->id) }}">{{ $item->news_title }}</a>
                                                     </h4>
                                                     <div class="archive-conut">
                                                         {{ $item->view_count }}
